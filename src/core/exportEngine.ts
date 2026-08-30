@@ -55,7 +55,7 @@ export function downloadValidationReport(
 ): void {
   const reportPayload = {
     generatedAt: new Date().toISOString(),
-    generator: 'CSV/JSON Column Type Cleaner Phase 1',
+    generator: 'CSV, XLSX & JSON Column Type Cleaner',
     privacyNote: 'Processed entirely in client browser with zero server storage',
     platform,
     summary: {

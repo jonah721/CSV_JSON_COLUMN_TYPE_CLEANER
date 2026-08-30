@@ -12,6 +12,9 @@ import { SchemaStep } from './components/SchemaStep';
 import { ReviewDiffStep } from './components/ReviewDiffStep';
 import { ValidationStep } from './components/ValidationStep';
 import { ExportStep } from './components/ExportStep';
+import { ColumnRepairLogo } from './components/Logo';
+import { FeedbackModal } from './components/FeedbackModal';
+import { Analytics } from '@vercel/analytics/react';
 
 const INITIAL_SCHEMA: DeclaredSchema = {
   platform: 'hubspot',
@@ -38,6 +41,7 @@ export default function App() {
   });
 
   const [isAutoFilledFromStorage, setIsAutoFilledFromStorage] = useState(false);
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
 
   // Active RulePack based on selected platform
   const activeRulePack = useMemo(() => {
@@ -227,19 +231,19 @@ export default function App() {
     switch (appState.step) {
       case 'upload':
         return {
-          eyebrow: 'CSV / JSON COLUMN TYPE CLEANER',
+          eyebrow: 'CSV / XLSX / JSON COLUMN TYPE CLEANER',
           title: 'Repair before you import',
           subtitle: "Fix coercion damage and validate against your CRM's rules: nothing leaves your browser.",
         };
       case 'schema':
         return {
-          eyebrow: 'CSV / JSON COLUMN TYPE CLEANER',
+          eyebrow: 'CSV / XLSX / JSON COLUMN TYPE CLEANER',
           title: 'Declare your schema',
           subtitle: 'Map columns to fields and mark which ones must keep their exact formatting.',
         };
       case 'review':
         return {
-          eyebrow: 'CSV / JSON COLUMN TYPE CLEANER',
+          eyebrow: 'CSV / XLSX / JSON COLUMN TYPE CLEANER',
           title: 'Review the repair',
           subtitle:
             affectedColumnsCount > 0
@@ -251,13 +255,13 @@ export default function App() {
           appState.declaredSchema.platform.charAt(0).toUpperCase() +
           appState.declaredSchema.platform.slice(1);
         return {
-          eyebrow: 'CSV / JSON COLUMN TYPE CLEANER',
+          eyebrow: 'CSV / XLSX / JSON COLUMN TYPE CLEANER',
           title: `Validate against ${platformTitle}`,
           subtitle: `Checked ${appState.parsedRows.length.toLocaleString()} rows against the Contacts rule pack.`,
         };
       case 'export':
         return {
-          eyebrow: 'CSV / JSON COLUMN TYPE CLEANER',
+          eyebrow: 'CSV / XLSX / JSON COLUMN TYPE CLEANER',
           title: 'Download your files',
           subtitle: 'Everything below was generated in your browser. Nothing is stored on our servers.',
         };
@@ -271,6 +275,42 @@ export default function App() {
     <div className="min-h-screen bg-[#F7F6F3] text-[#1C1E22] flex flex-col justify-between selection:bg-[#E7EBF0]">
       {/* Top Section */}
       <div>
+        {/* Brand Header Bar */}
+        <header className="w-full bg-white border-b border-[#D8D5CE] py-3.5 px-4 sm:px-8 md:px-16">
+          <div className="max-w-[1312px] mx-auto flex items-center justify-between">
+            <button
+              type="button"
+              onClick={() => goToStep('upload')}
+              className="hover:opacity-90 transition-opacity cursor-pointer text-left"
+              title="Column Repair Home"
+            >
+              <ColumnRepairLogo size="md" />
+            </button>
+
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                id="btn-open-feedback-header"
+                onClick={() => setIsFeedbackOpen(true)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] bg-white border border-[#D8D5CE] text-[#2E4057] text-[13px] font-bold hover:bg-[#F7F6F3] transition-colors cursor-pointer"
+                title="Send feedback"
+              >
+                <svg className="w-4 h-4 text-[#2E4057]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+                <span>Feedback</span>
+              </button>
+
+              <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E4EFE9] text-[#3C7A5F] text-[12px] font-medium border border-[#3C7A5F]/20">
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                </svg>
+                <span>100% In-Browser • Private</span>
+              </div>
+            </div>
+          </div>
+        </header>
+
         {/* Stepper Navigation */}
         <StepperNav
           currentStep={appState.step}
@@ -357,7 +397,7 @@ export default function App() {
 
       {/* Footer Navigation Bar */}
       <footer className="w-full bg-[#F7F6F3] border-t border-[#D8D5CE] py-5 px-4 sm:px-8 md:px-16 mt-auto">
-        <div className="max-w-[1312px] mx-auto flex items-center justify-between">
+        <div className="max-w-[1312px] mx-auto flex items-center justify-between gap-4">
           {/* Left Action: Back */}
           <div>
             {appState.step !== 'upload' ? (
@@ -372,6 +412,21 @@ export default function App() {
             ) : (
               <div />
             )}
+          </div>
+
+          {/* Center: Feedback trigger */}
+          <div className="hidden sm:flex items-center gap-2">
+            <button
+              type="button"
+              id="btn-open-feedback-footer"
+              onClick={() => setIsFeedbackOpen(true)}
+              className="text-[13px] font-medium text-[#6B6E73] hover:text-[#1C1E22] transition-colors cursor-pointer inline-flex items-center gap-1.5"
+            >
+              <svg className="w-4 h-4 text-[#6B6E73]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+              </svg>
+              <span>Have feedback or requested rules? Let us know</span>
+            </button>
           </div>
 
           {/* Right Action: Continue / Start a new file */}
@@ -398,6 +453,15 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Global Feedback Modal */}
+      <FeedbackModal
+        isOpen={isFeedbackOpen}
+        onClose={() => setIsFeedbackOpen(false)}
+      />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }

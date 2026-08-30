@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Container Background matching app brand (#2E4057) -->
+  <rect width="32" height="32" rx="8" fill="#2E4057"/>
+
+  <!-- Background Column 1 (Left - muted) -->
+  <rect x="4" y="5" width="5" height="22" rx="1.5" fill="#E7EBF0" fill-opacity="0.35"/>
+  <line x1="5" y1="9" x2="8" y2="9" stroke="#E7EBF0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.7"/>
+  <line x1="5" y1="13.5" x2="8" y2="13.5" stroke="#E7EBF0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.7"/>
+  <line x1="5" y1="18" x2="8" y2="18" stroke="#E7EBF0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.7"/>
+  <line x1="5" y1="22.5" x2="8" y2="22.5" stroke="#E7EBF0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.7"/>
+
+  <!-- Foreground Column 2 (Center - Active / Repaired Column in Emerald Sage & White) -->
+  <rect x="11.5" y="4" width="9" height="24" rx="2.5" fill="#FFFFFF" stroke="#3C7A5F" stroke-width="1.5"/>
+  <rect x="12.5" y="5" width="7" height="3.5" rx="1" fill="#3C7A5F"/>
+  <line x1="13.5" y1="12" x2="18.5" y2="12" stroke="#2E4057" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="13.5" y1="16" x2="18.5" y2="16" stroke="#2E4057" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="13.5" y1="20" x2="18.5" y2="20" stroke="#2E4057" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="13.5" y1="24" x2="17" y2="24" stroke="#2E4057" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Background Column 3 (Right - muted) -->
+  <rect x="23" y="5" width="5" height="22" rx="1.5" fill="#E7EBF0" fill-opacity="0.35"/>
+  <line x1="24" y1="9" x2="27" y2="9" stroke="#E7EBF0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.7"/>
+  <line x1="24" y1="13.5" x2="27" y2="13.5" stroke="#E7EBF0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.7"/>
+  <line x1="24" y1="18" x2="27" y2="18" stroke="#E7EBF0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.7"/>
+  <line x1="24" y1="22.5" x2="27" y2="22.5" stroke="#E7EBF0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.7"/>
+
+  <!-- Repair Spark / Check Badge on bottom-right of center column -->
+  <circle cx="21.5" cy="21.5" r="4" fill="#3C7A5F"/>
+  <path d="M20 21.5L21 22.5L23 20.5" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
