@@ -1,0 +1,125 @@
+{
+  "platform": "hubspot",
+  "object": "contacts",
+  "version": "2026.1",
+  "lastUpdated": "2026-08-30",
+  "sourceUrls": [
+    "https://knowledge.hubspot.com/crm-setup/set-up-your-import-file",
+    "https://developers.hubspot.com/docs/api/crm/contacts"
+  ],
+  "fields": [
+    {
+      "name": "email",
+      "label": "Email",
+      "required": true,
+      "type": "string",
+      "format": "email",
+      "description": "The contact's primary email address."
+    },
+    {
+      "name": "firstname",
+      "label": "First Name",
+      "required": false,
+      "type": "string",
+      "description": "The contact's first name."
+    },
+    {
+      "name": "lastname",
+      "label": "Last Name",
+      "required": false,
+      "type": "string",
+      "description": "The contact's last name."
+    },
+    {
+      "name": "phone",
+      "label": "Phone Number",
+      "required": false,
+      "type": "string",
+      "format": "phone",
+      "description": "A contact's primary phone number."
+    },
+    {
+      "name": "zip",
+      "label": "Postal Code",
+      "required": false,
+      "type": "string",
+      "format": "postal",
+      "description": "The contact's zip or postal code."
+    },
+    {
+      "name": "state",
+      "label": "State/Region",
+      "required": false,
+      "type": "string",
+      "format": "picklist",
+      "picklist": [
+        "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+        "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+        "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+        "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY",
+        "DC", "PR", "VI", "GU"
+      ],
+      "description": "The contact's state or province."
+    },
+    {
+      "name": "country",
+      "label": "Country/Region",
+      "required": false,
+      "type": "string",
+      "format": "picklist",
+      "picklist": [
+        "US", "CA", "GB", "AU", "DE", "FR", "NL", "IE", "NZ", "SG", "IN", "JP", "BR", "MX", "ES", "IT"
+      ],
+      "description": "The contact's country of residence."
+    },
+    {
+      "name": "employee_id",
+      "label": "Employee ID (custom)",
+      "required": false,
+      "type": "string",
+      "description": "Unique internal identifier for the contact/employee."
+    },
+    {
+      "name": "account_number",
+      "label": "Account Number (custom)",
+      "required": false,
+      "type": "string",
+      "description": "Customer accounting number or CRM ID."
+    },
+    {
+      "name": "close_date",
+      "label": "Close Date",
+      "required": false,
+      "type": "string",
+      "format": "date",
+      "description": "Date associated with the contact deal closure."
+    },
+    {
+      "name": "hire_date",
+      "label": "Hire Date",
+      "required": false,
+      "type": "string",
+      "format": "date",
+      "description": "Date of initial employment/hire."
+    },
+    {
+      "name": "lifecyclestage",
+      "label": "Lifecycle Stage",
+      "required": false,
+      "type": "string",
+      "format": "picklist",
+      "picklist": [
+        "subscriber",
+        "lead",
+        "marketingqualifiedlead",
+        "salesqualifiedlead",
+        "opportunity",
+        "customer",
+        "evangelist",
+        "other"
+      ],
+      "description": "The qualifier stage of the contact."
+    }
+  ]
+}

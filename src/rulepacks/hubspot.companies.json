@@ -1,0 +1,75 @@
+{
+  "platform": "hubspot",
+  "object": "companies",
+  "version": "2026.1",
+  "lastUpdated": "2026-08-30",
+  "sourceUrls": [
+    "https://knowledge.hubspot.com/crm-setup/set-up-your-import-file"
+  ],
+  "fields": [
+    {
+      "name": "name",
+      "label": "Company Name",
+      "required": true,
+      "type": "string",
+      "description": "The name of the company."
+    },
+    {
+      "name": "domain",
+      "label": "Company Domain Name",
+      "required": true,
+      "type": "string",
+      "description": "The company domain (e.g. hubspot.com)."
+    },
+    {
+      "name": "phone",
+      "label": "Phone Number",
+      "required": false,
+      "type": "string",
+      "format": "phone",
+      "description": "Company primary phone number."
+    },
+    {
+      "name": "zip",
+      "label": "Postal Code",
+      "required": false,
+      "type": "string",
+      "format": "postal",
+      "description": "Company zip or postal code."
+    },
+    {
+      "name": "state",
+      "label": "State/Region",
+      "required": false,
+      "type": "string",
+      "format": "picklist",
+      "picklist": [
+        "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+        "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+        "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+        "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY",
+        "DC", "PR"
+      ],
+      "description": "Company state or province."
+    },
+    {
+      "name": "country",
+      "label": "Country",
+      "required": false,
+      "type": "string",
+      "format": "picklist",
+      "picklist": [
+        "US", "CA", "GB", "AU", "DE", "FR", "NL", "IE", "NZ", "SG", "IN", "JP", "BR", "MX"
+      ],
+      "description": "Company country."
+    },
+    {
+      "name": "industry",
+      "label": "Industry",
+      "required": false,
+      "type": "string",
+      "description": "Company industry classification."
+    }
+  ]
+}

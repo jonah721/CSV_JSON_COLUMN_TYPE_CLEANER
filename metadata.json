@@ -1,0 +1,6 @@
+{
+  "name": "CSV/JSON Column Type Cleaner",
+  "description": "Repair before you import: fix coercion damage and validate against your CRM's rules entirely in your browser.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

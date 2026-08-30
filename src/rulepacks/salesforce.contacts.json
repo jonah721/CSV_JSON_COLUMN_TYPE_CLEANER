@@ -1,0 +1,15 @@
+{
+  "platform": "salesforce",
+  "object": "contacts",
+  "version": "2026.1",
+  "lastUpdated": "2026-08-30",
+  "sourceUrls": ["https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contact.htm"],
+  "fields": [
+    { "name": "LastName", "label": "Last Name", "required": true, "type": "string" },
+    { "name": "FirstName", "label": "First Name", "required": false, "type": "string" },
+    { "name": "Email", "label": "Email", "required": false, "type": "string", "format": "email" },
+    { "name": "Phone", "label": "Phone", "required": false, "type": "string", "format": "phone" },
+    { "name": "MailingPostalCode", "label": "Mailing Zip/Postal Code", "required": false, "type": "string", "format": "postal" },
+    { "name": "MailingState", "label": "Mailing State/Province", "required": false, "type": "string", "format": "picklist" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "platform": "attio",
+  "object": "people",
+  "version": "2026.1",
+  "lastUpdated": "2026-08-30",
+  "sourceUrls": ["https://developers.attio.com/reference/post_v2-objects-people-records"],
+  "fields": [
+    { "name": "name", "label": "Full Name", "required": true, "type": "string" },
+    { "name": "email_addresses", "label": "Email Addresses", "required": false, "type": "string", "format": "email" },
+    { "name": "phone_numbers", "label": "Phone Numbers", "required": false, "type": "string", "format": "phone" }
+  ]
+}
