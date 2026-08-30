@@ -48,17 +48,17 @@ export const DiffTable: React.FC<DiffTableProps> = ({
           <div
             key={group.column}
             id={`diff-card-${group.column}`}
-            className="bg-white border border-[#D8D5CE] rounded-[10px] p-5 shadow-none transition-all"
+            className="bg-white border border-[#D8D5CE] rounded-[10px] p-4 sm:p-5 shadow-none transition-all overflow-hidden"
           >
             {/* Card Header */}
-            <div className="flex items-center justify-between border-b border-[#D8D5CE] pb-3 mb-3">
-              <div className="flex items-center gap-3">
-                <span className="font-mono font-bold text-[15px] text-[#1C1E22]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#D8D5CE] pb-3 mb-3">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 min-w-0">
+                <span className="font-mono font-bold text-[15px] text-[#1C1E22] break-all">
                   {group.column}
                 </span>
 
                 {group.mappedField && group.mappedField !== group.column && (
-                  <span className="text-[13px] text-[#6B6E73]">
+                  <span className="text-[12px] sm:text-[13px] text-[#6B6E73] break-all">
                     (mapped: <span className="font-mono">{group.mappedField}</span>)
                   </span>
                 )}
@@ -74,7 +74,7 @@ export const DiffTable: React.FC<DiffTableProps> = ({
               </div>
 
               {/* Status Controls */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 shrink-0 self-start sm:self-auto">
                 <button
                   type="button"
                   id={`btn-accept-${group.column}`}
@@ -104,33 +104,33 @@ export const DiffTable: React.FC<DiffTableProps> = ({
             </div>
 
             {/* Diff Rows */}
-            <div className="flex flex-col divide-y divide-[#F7F6F3] max-h-[360px] overflow-y-auto">
+            <div className="flex flex-col divide-y divide-[#F7F6F3] max-h-[380px] overflow-y-auto pr-1">
               {visibleFlags.map((flag, idx) => (
                 <div
                   key={`${flag.column}-${flag.rowIndex}-${idx}`}
-                  className="py-2 px-2 flex items-center justify-between text-[14px] hover:bg-[#F7F6F3] rounded transition-colors"
+                  className="py-2.5 px-2 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-4 hover:bg-[#F7F6F3] rounded transition-colors text-[13px] sm:text-[14px]"
                 >
-                  <div className="flex items-center gap-2">
-                    <span className="text-[12px] text-[#6B6E73] w-12 font-mono">
+                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 min-w-0">
+                    <span className="text-[12px] text-[#6B6E73] min-w-[48px] font-mono shrink-0">
                       row {flag.rowIndex + 1}
                     </span>
 
                     {/* Original in Error-Red with Strikethrough */}
-                    <span className="font-mono text-[#A63D40] line-through bg-[#F5E1E1]/40 px-1.5 py-0.5 rounded">
+                    <span className="font-mono text-[#A63D40] line-through bg-[#F5E1E1]/40 px-1.5 py-0.5 rounded break-all max-w-full">
                       {flag.original || '(empty)'}
                     </span>
 
                     {/* Arrow in Ink Muted */}
-                    <span className="text-[#6B6E73] font-sans font-bold px-1">→</span>
+                    <span className="text-[#6B6E73] font-sans font-bold px-0.5">→</span>
 
                     {/* Repaired or Unrecoverable */}
                     {flag.isUnrecoverable ? (
-                      <span className="font-mono font-medium text-[#B8752E] bg-[#F6E9DA] px-2 py-0.5 rounded text-[13px]">
+                      <span className="font-mono font-medium text-[#B8752E] bg-[#F6E9DA] px-2 py-0.5 rounded text-[12px] sm:text-[13px] break-all">
                         unrecoverable (flagged)
                       </span>
                     ) : (
                       <span
-                        className={`font-mono px-1.5 py-0.5 rounded ${
+                        className={`font-mono px-1.5 py-0.5 rounded break-all ${
                           isAccepted
                             ? 'text-[#3C7A5F] bg-[#E4EFE9]'
                             : 'text-[#6B6E73] line-through'
@@ -142,7 +142,7 @@ export const DiffTable: React.FC<DiffTableProps> = ({
                   </div>
 
                   {flag.explanation && (
-                    <span className="text-[12px] text-[#6B6E73] italic">
+                    <span className="text-[11px] sm:text-[12px] text-[#6B6E73] italic pl-1 sm:pl-0 shrink-0">
                       {flag.explanation}
                     </span>
                   )}
