@@ -1,12 +1,12 @@
-\# AGENTS.md — Agent Operating Rules
+\# AGENTS.md - Agent Operating Rules
 
 This file is the contract for ANY AI agent (CLI, Desktop, Cloud, Web, or any other  
 interface) working in this repository. Read it fully before doing anything.
 
 The conversation you are having is stateless. The repository is the source of truth.  
-Never rely on memory of a previous session — rely on the files.
+Never rely on memory of a previous session - rely on the files.
 
-\#\# Rule 1 — One problem, one branch, one PR, one focus
+\#\# Rule 1 - One problem, one branch, one PR, one focus
 
 \- Work on exactly ONE problem at a time, defined by a single entry in \`docs/PLAN.md\`.  
 \- Create a dedicated branch per problem: \`feat/\<slug\>\`, \`fix/\<slug\>\`, or \`chore/\<slug\>\`.  
@@ -20,7 +20,7 @@ Never rely on memory of a previous session — rely on the files.
   branch), do NOT start a parallel implementation. Continue that branch or pick  
   another item.
 
-\#\# Rule 2 — Read PLAN.md before doing anything
+\#\# Rule 2 - Read PLAN.md before doing anything
 
 \- Before writing, changing, or suggesting ANY code: read \`docs/PLAN.md\` and recent  
   git history (\`git log \--oneline \-20\`, open PRs/branches).  
@@ -31,7 +31,7 @@ Never rely on memory of a previous session — rely on the files.
 \- Never re-implement, refactor, or "improve" something PLAN.md or merged history  
   marks as done. Extend existing work; do not replace it.
 
-\#\# Rule 3 — Update PLAN.md after finishing work
+\#\# Rule 3 - Update PLAN.md after finishing work
 
 \- When a feature/task is complete (tests pass, PR opened), update \`docs/PLAN.md\`  
   in the same PR:  
@@ -47,12 +47,12 @@ Never rely on memory of a previous session — rely on the files.
 
 \`docs/PLAN.md\` must contain these sections:
 
-\- \*\*Overview\*\* — what the project is and is not.  
-\- \*\*Decisions\*\* — stack, architecture, and convention choices (append-only, dated).  
-\- \*\*Done\*\* — completed items with PR references.  
-\- \*\*In Progress\*\* — active item(s), current step, next action.  
-\- \*\*Backlog\*\* — known future work, one line each.  
-\- \*\*Status\*\* — one sentence: where the project stands right now.
+\- \*\*Overview\*\* - what the project is and is not.  
+\- \*\*Decisions\*\* - stack, architecture, and convention choices (append-only, dated).  
+\- \*\*Done\*\* - completed items with PR references.  
+\- \*\*In Progress\*\* - active item(s), current step, next action.  
+\- \*\*Backlog\*\* - known future work, one line each.  
+\- \*\*Status\*\* - one sentence: where the project stands right now.
 
 \#\# Workflow summary
 
