@@ -37,7 +37,38 @@
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
-    <div id="root"></div>
+    <noscript>
+      <h1>CSV, XLSX &amp; JSON Column Type Cleaner</h1>
+      <p>This free online tool fixes column type damage in CSV, XLSX and JSON files before you import them into your CRM. It runs entirely in your browser — no upload required.</p>
+      <p>Please enable JavaScript to use the tool.</p>
+    </noscript>
+    <div id="root">
+      <!-- Static SEO content: crawlable without JavaScript. React replaces this at runtime. -->
+      <h1>CSV, XLSX &amp; JSON Column Type Cleaner</h1>
+      <p>Repair your data before you import it. This free online tool detects and fixes column type damage in <strong>CSV</strong>, <strong>XLSX</strong> and <strong>JSON</strong> files — corrupted dates, mangled phone numbers, broken numbers — and validates every column against your CRM's import rules. Everything runs entirely in your browser: your files never leave your computer.</p>
+      <h2>What it fixes</h2>
+      <ul>
+        <li><strong>Dates</strong> — repair coercion damage like lost leading zeros, ambiguous DD/MM vs MM/DD, and Excel-serialized numbers.</li>
+        <li><strong>Phone numbers</strong> — validate and normalize to consistent formats for any country.</li>
+        <li><strong>Numbers</strong> — restore stripped formatting, thousands separators, and currency values.</li>
+        <li><strong>Text encoding</strong> — fix mojibake and broken characters from bad CSV encoding.</li>
+      </ul>
+      <h2>Why use it before a CRM import</h2>
+      <p>Spreadsheets silently corrupt column types when opened, saved, or exported. A damaged date column or malformed phone number can fail a Salesforce, HubSpot, or Pipedrive import and cost hours of cleanup. This tool catches and repairs those problems <em>before</em> the import — entirely client-side, free, with no account and no upload.</p>
+      <h2>How it works</h2>
+      <ol>
+        <li>Drop in your CSV, XLSX, or JSON file — it is processed in your browser only.</li>
+        <li>The tool analyzes every column and detects type damage automatically.</li>
+        <li>Review suggested repairs, apply them, and download a clean file ready for import.</li>
+      </ol>
+      <h2>FAQ</h2>
+      <h3>Is my data uploaded anywhere?</h3>
+      <p>No. All parsing and repair happens locally in your browser. Nothing is sent to a server.</p>
+      <h3>Which file formats are supported?</h3>
+      <p>CSV, Excel XLSX, and JSON.</p>
+      <h3>Is it free?</h3>
+      <p>Yes, completely free with no account required.</p>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
