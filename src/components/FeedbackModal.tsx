@@ -230,7 +230,7 @@ export const FeedbackModal: React.FC<FeedbackModalProps> = ({ isOpen, onClose })
             {/* Optional Email */}
             <div>
               <label htmlFor="feedback-email" className="block text-[12px] font-medium text-[#6B6E73] mb-1">
-                Your Email (optional - if you would like a reply)
+                Your Email (optional, if you would like a reply)
               </label>
               <input
                 id="feedback-email"
